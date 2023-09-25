@@ -104,3 +104,73 @@ function viewAllEmployees() {
         start();
     });
 }
+
+// Function to Add a Department
+function addDepartment() {
+    inquirer
+        .prompt({
+            type: "input",
+            name: "name",
+            message: "Please add name of new department:",
+        })
+        .then((answer) => {
+            console.log(answer.name);
+            const query = `INSERT INTO departments (department_name) VALUES ("${answer.name}")`;
+            connection.query(query, (err, res) => {
+                if (err) throw err;
+                console.log(`You have successfully added department ${answer.name} to the database!`);
+                start();
+                console.log(answer.name);
+            });
+        });
+}
+
+// Function to Add Role
+function addRole() {
+    const query = "SELECT * FROM departments";
+    connection.query(query, (err, res) => {
+        if (err) throw err;
+        inquirer
+            .prompt([
+                {
+                    type: "input",
+                    name: "title",
+                    message: "Enter the title of the new role:",
+                },
+                {
+                    type: "input",
+                    name: "salary",
+                    message: "Enter the salary of the new role:",
+                },
+                {
+                    type: "list",
+                    name: "department",
+                    message: "Select the department for the new role:",
+                    choices: res.map(
+                        (department) => department.department_name
+                    ),
+                },
+            ])
+            .then((answers) => {
+                const department = res.find(
+                    (department) => department.name === answers.department
+                );
+                const query = "INSERT INTO roles SET ?";
+                connection.query(
+                    query,
+                    {
+                        title: answers.title,
+                        salary: answers.salary,
+                        department_id: department,
+                    },
+                    (err, res) => {
+                        if (err) throw err;
+                        console.log(
+                            `Added role ${answers.title} with salary ${answers.salary} to the ${answers.department} department in the database!`
+                        );
+                        start();
+                    }
+                );
+            });
+    });
+}
