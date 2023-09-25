@@ -10,10 +10,11 @@ The Employee Tracker command-line application can be used to manage a company's 
 * [Contact-Me](#contact)
 * [Contributors](#contributors)
 * [Testing](#testing)
+* [Demo](#demo)
 * [License](#license)
 
 ## Usage
-The user will be able to view their company's employees, departments, titles, and salaries. It is required to install mysql and Inquirer to operate the application. Afterwards, you will need to copy the code and then run node server.js in the terminal.
+The user will be able to view their company's employees, departments, titles, and salaries. It is required to install mysql and Inquirer to operate the application. To operate the application you will need to run node server.js in the terminal.
 
 ## Mock-Up
 The following image shows the command-line application's appearance and functionality:
@@ -27,6 +28,9 @@ The following image shows the command-line application's appearance and function
 N/A
 ## Testing
 N/A
+
+## Demo
+<a href="https://drive.google.com/file/d/1SlZiM5B5mc5J-GnzaqU7A-MMxqbqSmAy/view">Employee Tracker Demonstration</a>
 ## License
 
         Licensed under the MIT license.
