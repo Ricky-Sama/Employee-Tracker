@@ -18,7 +18,7 @@
 The following image shows the command-line application's appearance and functionality:
 
 ## Mock-Up
-![screenshot of application]()
+![screenshot of application](./screenshots/Employee-Tracker%20screenshot.jpg)
 
 ## Contact
 * Name - Ricardo Scuotto
